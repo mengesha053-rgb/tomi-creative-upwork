@@ -55,8 +55,8 @@
         /* Glowing Orange Portrait Circle */
         .portrait-ring {
             position: relative;
-            width: 280px;
-            height: 280px;
+            width: 260px;
+            height: 260px;
             border-radius: 50%;
             padding: 5px;
             background: linear-gradient(135deg, #ff5e00, #ff2a00);
@@ -70,8 +70,8 @@
 
         @media (min-width: 768px) {
             .portrait-ring {
-                width: 360px;
-                height: 360px;
+                width: 380px;
+                height: 380px;
             }
         }
 
@@ -234,20 +234,20 @@
 
         <!-- ==================== PAGE 1: HOME ==================== -->
         <section id="page-home" class="page-section active w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
-            <!-- Forced Flex/Grid layout to ensure Text on Left, Photo on Right on Desktop -->
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <!-- Using md:flex-row to ensure side-by-side on tablet/desktop -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
                 
                 <!-- Left Column: Text & Bio -->
-                <div class="w-full lg:w-[58%] text-left space-y-5">
-                    <p class="text-white font-bold text-sm md:text-base tracking-widest uppercase">
+                <div class="w-full md:w-[58%] text-left space-y-4">
+                    <p class="text-white font-bold text-xs md:text-sm tracking-widest uppercase">
                         HELLO!
                     </p>
                     
-                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+                    <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
                         I'm <span class="text-[#ff4d00]">Temesgen Mengesha</span>
                     </h1>
                     
-                    <h2 class="text-lg sm:text-2xl md:text-3xl font-bold text-[#ff4d00]">
+                    <h2 class="text-lg sm:text-xl md:text-3xl font-bold text-[#ff4d00]">
                         Short-Form Video Editor & Creative Strategist
                     </h2>
                     
@@ -257,16 +257,16 @@
 
                     <!-- Action Buttons -->
                     <div class="pt-2 flex flex-wrap items-center gap-4">
-                        <button onclick="switchPage('contact')" class="btn-orange px-8 py-3.5 text-sm md:text-base cursor-pointer">
+                        <button onclick="switchPage('contact')" class="btn-orange px-7 py-3 text-xs md:text-sm cursor-pointer">
                             Let's talk
                         </button>
-                        <button onclick="switchPage('portfolio')" class="px-7 py-3.5 rounded-full border border-white/20 hover:border-[#ff4d00] text-white hover:text-[#ff4d00] font-semibold text-sm md:text-base transition cursor-pointer">
+                        <button onclick="switchPage('portfolio')" class="px-6 py-3 rounded-full border border-white/20 hover:border-[#ff4d00] text-white hover:text-[#ff4d00] font-semibold text-xs md:text-sm transition cursor-pointer">
                             View Portfolio
                         </button>
                     </div>
 
                     <!-- Social Icons -->
-                    <div class="pt-2 flex items-center gap-4">
+                    <div class="pt-2 flex items-center gap-3">
                         <a href="https://www.upwork.com/freelancers/~0130453a58feda9741" target="_blank" rel="noopener noreferrer" class="social-circle" title="Upwork">
                             <i class="fab fa-upwork"></i>
                         </a>
@@ -283,7 +283,7 @@
                 </div>
 
                 <!-- Right Column: Glowing Orange Circle Portrait -->
-                <div class="w-full lg:w-[42%] flex justify-center lg:justify-end">
+                <div class="w-full md:w-[42%] flex justify-center md:justify-end">
                     <div class="portrait-ring">
                         <img src="me.jpg" alt="Temesgen Mengesha - Tomi Creative">
                     </div>
