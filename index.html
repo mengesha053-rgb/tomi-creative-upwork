@@ -16,9 +16,7 @@
             --card-bg: #0f0f0f;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             background-color: var(--bg-dark);
@@ -28,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* CSS Underline Hover Animation (Exactly like the reference video) */
         .nav-link {
             position: relative;
             color: #e5e5e5;
@@ -52,35 +49,29 @@
             transition: width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--accent);
-        }
+        .nav-link:hover, .nav-link.active { color: var(--accent); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        /* Glowing Orange Portrait Circle (Hero Right Side) */
+        /* Glowing Orange Portrait Circle */
         .portrait-ring {
             position: relative;
-            width: 310px;
-            height: 310px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
-            padding: 6px;
+            padding: 5px;
             background: linear-gradient(135deg, #ff5e00, #ff2a00);
             box-shadow: 0 0 60px var(--accent-glow), inset 0 0 25px rgba(255, 77, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         @media (min-width: 768px) {
             .portrait-ring {
-                width: 400px;
-                height: 400px;
+                width: 360px;
+                height: 360px;
             }
         }
 
@@ -97,7 +88,6 @@
             background-color: #111;
         }
 
-        /* Buttons & Social Icons */
         .btn-orange {
             background-color: var(--accent);
             color: #ffffff;
@@ -124,6 +114,7 @@
             justify-content: center;
             font-size: 16px;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .social-circle:hover {
@@ -133,28 +124,18 @@
             transform: translateY(-3px);
         }
 
-        /* Page Switching Animation */
         .page-section {
             display: none;
             animation: fadeInPage 0.45s ease forwards;
         }
 
-        .page-section.active {
-            display: block;
-        }
+        .page-section.active { display: block; }
 
         @keyframes fadeInPage {
-            from {
-                opacity: 0;
-                transform: translateY(14px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Cards & Containers */
         .dark-card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -178,13 +159,10 @@
             overflow: hidden;
         }
 
-        .video-container iframe,
-        .intro-container iframe {
+        .video-container iframe, .intro-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: none;
         }
 
@@ -212,9 +190,7 @@
             box-shadow: 0 0 20px rgba(255, 77, 0, 0.4);
         }
 
-        details summary::-webkit-details-marker {
-            display: none;
-        }
+        details summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between">
@@ -222,13 +198,10 @@
     <!-- TOP NAVIGATION BAR -->
     <header class="w-full sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-            
-            <!-- Brand Logo (Left) -->
             <a onclick="switchPage('home')" class="cursor-pointer text-2xl md:text-3xl font-extrabold tracking-tight select-none">
                 <span class="text-[#ff4d00]">Tomi</span><span class="text-white">Creative</span>
             </a>
 
-            <!-- Desktop Navigation Links (Center) -->
             <nav class="hidden md:flex items-center gap-9">
                 <a onclick="switchPage('home')" id="nav-home" class="nav-link active">Home</a>
                 <a onclick="switchPage('about')" id="nav-about" class="nav-link">About</a>
@@ -237,18 +210,16 @@
                 <a onclick="switchPage('contact')" id="nav-contact" class="nav-link">Contact</a>
             </nav>
 
-            <!-- Right Action Button (Hire Me instead of Download CV) + Mobile Menu Button -->
             <div class="flex items-center gap-4">
-                <a href="https://www.upwork.com/freelancers/~0130453a58feda9741" target="_blank" rel="noopener noreferrer" class="btn-orange px-6 py-2.5 text-xs md:text-sm inline-flex items-center gap-2">
+                <a href="https://www.upwork.com/freelancers/~0130453a58feda9741" target="_blank" rel="noopener noreferrer" class="btn-orange px-6 py-2.5 text-xs md:text-sm inline-flex items-center gap-2 no-underline">
                     <i class="fab fa-upwork text-base"></i> Hire Me
                 </a>
-                <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl focus:outline-none">
+                <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl focus:outline-none cursor-pointer">
                     <i class="fas fa-bars" id="mobile-menu-icon"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Dropdown Navigation -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#0a0a0a] border-b border-white/10 px-6 py-5 space-y-4">
             <a onclick="switchPage('home'); toggleMobileMenu();" class="block text-base font-semibold text-white hover:text-[#ff4d00] cursor-pointer">Home</a>
             <a onclick="switchPage('about'); toggleMobileMenu();" class="block text-base font-semibold text-white hover:text-[#ff4d00] cursor-pointer">About</a>
@@ -258,32 +229,33 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT AREA (Each section acts as a separate page) -->
+    <!-- MAIN CONTENT AREA -->
     <main class="flex-grow flex items-center">
 
         <!-- ==================== PAGE 1: HOME ==================== -->
         <section id="page-home" class="page-section active w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Forced Flex/Grid layout to ensure Text on Left, Photo on Right on Desktop -->
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
                 
-                <!-- Left Column (Matches Video Layout) -->
-                <div class="lg:col-span-7 text-left space-y-5">
+                <!-- Left Column: Text & Bio -->
+                <div class="w-full lg:w-[58%] text-left space-y-5">
                     <p class="text-white font-bold text-sm md:text-base tracking-widest uppercase">
                         HELLO!
                     </p>
                     
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
                         I'm <span class="text-[#ff4d00]">Temesgen Mengesha</span>
                     </h1>
                     
-                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-[#ff4d00]">
+                    <h2 class="text-lg sm:text-2xl md:text-3xl font-bold text-[#ff4d00]">
                         Short-Form Video Editor & Creative Strategist
                     </h2>
                     
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-xl">
+                    <p class="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
                         I help international brands and creators scale across TikTok, Reels, and YouTube Shorts. Specializing in high-retention talking-head videos, performance Meta ads, and direct-response UGC — engineered with dynamic pacing and custom motion graphics.
                     </p>
 
-                    <!-- Action Buttons & Quick Links -->
+                    <!-- Action Buttons -->
                     <div class="pt-2 flex flex-wrap items-center gap-4">
                         <button onclick="switchPage('contact')" class="btn-orange px-8 py-3.5 text-sm md:text-base cursor-pointer">
                             Let's talk
@@ -293,8 +265,8 @@
                         </button>
                     </div>
 
-                    <!-- Circular Social Icons (Underneath CTA just like video) -->
-                    <div class="pt-4 flex items-center gap-4">
+                    <!-- Social Icons -->
+                    <div class="pt-2 flex items-center gap-4">
                         <a href="https://www.upwork.com/freelancers/~0130453a58feda9741" target="_blank" rel="noopener noreferrer" class="social-circle" title="Upwork">
                             <i class="fab fa-upwork"></i>
                         </a>
@@ -311,7 +283,7 @@
                 </div>
 
                 <!-- Right Column: Glowing Orange Circle Portrait -->
-                <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                <div class="w-full lg:w-[42%] flex justify-center lg:justify-end">
                     <div class="portrait-ring">
                         <img src="me.jpg" alt="Temesgen Mengesha - Tomi Creative">
                     </div>
@@ -327,7 +299,6 @@
                 <h2 class="text-3xl md:text-5xl font-extrabold mt-2">About <span class="text-[#ff4d00]">Tomi Creative</span></h2>
             </div>
 
-            <!-- Stats Row -->
             <div class="grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-14">
                 <div class="dark-card p-6 text-center">
                     <p class="text-2xl md:text-4xl font-black text-white">250+</p>
@@ -343,7 +314,6 @@
                 </div>
             </div>
 
-            <!-- Intro Video -->
             <div class="max-w-3xl mx-auto mb-16">
                 <h3 class="text-center text-sm uppercase tracking-[4px] text-gray-400 font-bold mb-5">✦ Meet Your Editor ✦</h3>
                 <div class="dark-card p-2.5 border-[#ff4d00]/40">
@@ -353,7 +323,6 @@
                 </div>
             </div>
 
-            <!-- Upwork Client Reviews (Social Proof) -->
             <h3 class="text-center text-xl md:text-2xl font-bold mb-8">Client <span class="text-[#ff4d00]">Feedback & Reviews</span></h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                 <div class="dark-card p-5">
@@ -401,7 +370,6 @@
                 <h2 class="text-3xl md:text-5xl font-extrabold mt-2">Services & <span class="text-[#ff4d00]">Workflow</span></h2>
             </div>
 
-            <!-- Toolkit & Expertise -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
                 <div class="dark-card p-8">
                     <h3 class="text-[#ff4d00] font-bold text-sm uppercase tracking-widest mb-6">Premium Toolkit</h3>
@@ -429,7 +397,6 @@
                 </div>
             </div>
 
-            <!-- 3-Step Process -->
             <h3 class="text-center text-xl font-bold mb-6">Simple 3-Step <span class="text-[#ff4d00]">Process</span></h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
                 <div class="dark-card p-8 text-center">
@@ -449,7 +416,6 @@
                 </div>
             </div>
 
-            <!-- FAQ -->
             <div class="max-w-3xl mx-auto">
                 <h3 class="text-center text-xl font-bold mb-6">Common <span class="text-[#ff4d00]">Questions</span></h3>
                 <div class="space-y-3">
@@ -485,14 +451,12 @@
                 <h2 class="text-3xl md:text-5xl font-extrabold mt-2">My <span class="text-[#ff4d00]">Portfolio</span></h2>
             </div>
 
-            <!-- Category Filter Tabs -->
             <div class="flex flex-wrap justify-center gap-3 mb-12">
                 <button onclick="filterCategory('talking-head')" id="btn-talking-head" class="tab-btn active px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider cursor-pointer">Talking Head / E-Com</button>
                 <button onclick="filterCategory('meta-ads')" id="btn-meta-ads" class="tab-btn px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider cursor-pointer">Meta Ads / UGC</button>
                 <button onclick="filterCategory('before-after')" id="btn-before-after" class="tab-btn px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider cursor-pointer">Before & After</button>
             </div>
 
-            <!-- Talking Head Videos -->
             <div id="section-talking-head" class="category-group">
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7 max-w-4xl mx-auto">
                     <div class="dark-card p-2"><div class="video-container"><iframe src="https://www.youtube.com/embed/s90AxiHl4YU" loading="lazy" allowfullscreen></iframe></div></div>
@@ -504,7 +468,6 @@
                 </div>
             </div>
 
-            <!-- Meta Ads / UGC Videos -->
             <div id="section-meta-ads" class="category-group hidden">
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7 max-w-4xl mx-auto">
                     <div class="dark-card p-2"><div class="video-container"><iframe src="https://www.youtube.com/embed/oq1aj2udEKI" loading="lazy" allowfullscreen></iframe></div></div>
@@ -516,7 +479,6 @@
                 </div>
             </div>
 
-            <!-- Before & After Videos -->
             <div id="section-before-after" class="category-group hidden">
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7 max-w-4xl mx-auto">
                     <div class="dark-card p-2"><div class="video-container"><iframe src="https://www.youtube.com/embed/CiyOsYsU2rE" loading="lazy" allowfullscreen></iframe></div></div>
@@ -541,23 +503,23 @@
                 <p class="text-gray-400 text-xs md:text-sm max-w-lg mx-auto mb-7 leading-relaxed">
                     "Average content gets scrolled past. I combine rapid-fire pacing, emotional hooks, and elite sound design to keep your audience glued to the screen."
                 </p>
-                <a href="https://www.upwork.com/services/product/video-audio-high-retention-talking-head-videos-for-reels-tiktok-and-shorts-2120434649661260821?ref=project_share" target="_blank" rel="noopener noreferrer" class="btn-orange px-8 py-4 text-sm inline-flex items-center gap-2">
+                <a href="https://www.upwork.com/services/product/video-audio-high-retention-talking-head-videos-for-reels-tiktok-and-shorts-2120434649661260821?ref=project_share" target="_blank" rel="noopener noreferrer" class="btn-orange px-8 py-4 text-sm inline-flex items-center gap-2 no-underline">
                     Start Your Project Now <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <a href="mailto:tomicreative8@gmail.com" class="dark-card p-6 text-center block">
+                <a href="mailto:tomicreative8@gmail.com" class="dark-card p-6 text-center block no-underline">
                     <i class="fas fa-envelope text-[#ff4d00] text-2xl mb-3"></i>
                     <p class="text-xs font-bold uppercase text-gray-400">Email</p>
                     <p class="text-xs font-semibold text-white mt-1 break-all">tomicreative8@gmail.com</p>
                 </a>
-                <a href="https://wa.me/251931085360" target="_blank" rel="noopener noreferrer" class="dark-card p-6 text-center block">
+                <a href="https://wa.me/251931085360" target="_blank" rel="noopener noreferrer" class="dark-card p-6 text-center block no-underline">
                     <i class="fab fa-whatsapp text-emerald-500 text-2xl mb-3"></i>
                     <p class="text-xs font-bold uppercase text-gray-400">WhatsApp</p>
                     <p class="text-xs font-semibold text-white mt-1">+251 931 085 360</p>
                 </a>
-                <a href="https://www.linkedin.com/in/temesgen-mengesha-6b7a1b43a" target="_blank" rel="noopener noreferrer" class="dark-card p-6 text-center block">
+                <a href="https://www.linkedin.com/in/temesgen-mengesha-6b7a1b43a" target="_blank" rel="noopener noreferrer" class="dark-card p-6 text-center block no-underline">
                     <i class="fab fa-linkedin text-[#ff4d00] text-2xl mb-3"></i>
                     <p class="text-xs font-bold uppercase text-gray-400">LinkedIn</p>
                     <p class="text-xs font-semibold text-white mt-1">Temesgen Mengesha</p>
@@ -567,24 +529,19 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="text-center py-6 border-t border-white/5 text-gray-500 text-xs">
         <p>© 2026 <span class="text-[#ff4d00] font-semibold">Tomi Creative</span> • Temesgen Mengesha. All Rights Reserved.</p>
     </footer>
 
     <script>
         function switchPage(pageName) {
-            // Hide all pages
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
             });
-
-            // Remove active class from all nav links
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
 
-            // Show selected page and activate nav link
             const targetSection = document.getElementById('page-' + pageName);
             const targetNav = document.getElementById('nav-' + pageName);
 
