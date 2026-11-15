@@ -27,6 +27,23 @@
 
         .glow-hover:hover { border-color: #3b82f6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); transform: translateY(-4px); }
         
+        .hero-glow {
+            position: relative;
+        }
+        .hero-glow::after {
+            content: '';
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            background: rgba(59, 130, 246, 0.15);
+            filter: blur(60px);
+            border-radius: 50%;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .video-container { position: relative; width: 100%; padding-bottom: 177.77%; height: 0; background: #000; border-radius: 20px; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         
@@ -77,54 +94,67 @@
         <i class="fab fa-upwork text-lg md:text-xl"></i> Hire Me
     </a>
 
-    <header class="pt-16 pb-12 px-6 text-center max-w-4xl mx-auto">
-        <div class="mb-6 relative inline-block">
-            <img src="me.jpg" class="w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-blue-500 mx-auto object-cover shadow-2xl" alt="Temesgen Mengesha - Video Editing Expert">
-            <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white text-[9px] font-black px-3 py-1.5 rounded-full uppercase shadow-lg">Expert Editor</div>
-        </div>
-        
-        <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl text-white mb-1">
-            TEMESGEN MENGESHA
-        </h1>
-        
-        <h2 class="hero-title text-3xl sm:text-4xl md:text-5xl text-blue-500 mt-0 mb-6">
-            TOMI CREATIVE
-        </h2>
-        
-        <p class="max-w-2xl mx-auto text-gray-300 text-xs md:text-sm mb-8 leading-relaxed font-normal">
-            I help brands and creators scale across <span class="text-blue-400 font-bold">TikTok, Reels, and YouTube Shorts</span>. Specializing in <span class="text-white font-bold">talking-head videos, performance Meta ads, and direct-response UGC</span> — engineered with dynamic pacing, custom UI graphics, and strategic scripting when needed.
-        </p>
+    <!-- HERO SECTION (Without CV Download Button) -->
+    <header class="pt-16 pb-12 px-6 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left Column: Details & Bio -->
+            <div class="md:col-span-7 text-left">
+                <div class="inline-block bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">
+                    ✨ Expert Video Editor & Creative Strategist
+                </div>
+                
+                <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl text-white mb-1">
+                    TEMESGEN MENGESHA
+                </h1>
+                
+                <h2 class="hero-title text-2xl sm:text-3xl md:text-4xl text-blue-500 mb-4">
+                    TOMI CREATIVE
+                </h2>
+                
+                <p class="text-gray-300 text-xs md:text-sm mb-6 leading-relaxed font-normal">
+                    I help brands and creators scale across <span class="text-blue-400 font-bold">TikTok, Reels, and YouTube Shorts</span>. Specializing in <span class="text-white font-bold">talking-head videos, performance Meta ads, and direct-response UGC</span> — engineered with dynamic pacing, custom UI graphics, and strategic scripting when needed.
+                </p>
 
-        <!-- Contact Info Added Here -->
-        <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-8 text-xs font-semibold text-gray-300">
-            <a href="mailto:tomicreative8@gmail.com" class="hover:text-blue-400 transition flex items-center gap-2"><i class="fas fa-envelope text-blue-500"></i> tomicreative8@gmail.com</a>
-            <a href="https://wa.me/251931085360" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fab fa-whatsapp text-emerald-500"></i> +251931085360</a>
-            <a href="https://www.linkedin.com/in/temesgen-mengesha-6b7a1b43a" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition flex items-center gap-2"><i class="fab fa-linkedin text-blue-500"></i> LinkedIn Profile</a>
-        </div>
+                <!-- Contact Info -->
+                <div class="flex flex-wrap gap-4 md:gap-6 mb-6 text-xs font-semibold text-gray-300">
+                    <a href="mailto:tomicreative8@gmail.com" class="hover:text-blue-400 transition flex items-center gap-2"><i class="fas fa-envelope text-blue-500"></i> tomicreative8@gmail.com</a>
+                    <a href="https://wa.me/251931085360" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fab fa-whatsapp text-emerald-500"></i> +251931085360</a>
+                </div>
 
-        <div class="flex justify-center gap-4 md:gap-10 mb-10">
-            <div class="text-center">
-                <p class="text-white font-black text-xl md:text-2xl">250+</p>
-                <p class="text-[8px] uppercase tracking-[1px] text-blue-500 font-bold">Video Delivered</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://www.upwork.com/freelancers/~0130453a58feda9741" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-black text-xs uppercase tracking-wider transition inline-flex items-center gap-2 no-underline">
+                        <i class="fab fa-upwork text-lg"></i> View Upwork Profile
+                    </a>
+                </div>
             </div>
-            <div class="text-center border-x border-white/10 px-4 md:px-10">
-                <p class="text-white font-black text-xl md:text-2xl">85%+</p>
-                <p class="text-[8px] uppercase tracking-[1px] text-emerald-500 font-bold">High Retention</p>
-            </div>
-            <div class="text-center">
-                <p class="text-white font-black text-xl md:text-2xl">100%</p>
-                <p class="text-[8px] uppercase tracking-[1px] text-blue-500 font-bold">Job Success</p>
-            </div>
-        </div>
 
-        <div class="flex flex-wrap justify-center gap-4 mb-12 px-4">
-            <a href="https://www.upwork.com/freelancers/~0130453a58feda9741" target="_blank" rel="noopener noreferrer" class="glass p-4 flex items-center gap-3 glow-hover no-underline">
-                <i class="fab fa-upwork text-[#14a800] text-2xl"></i>
-                <div class="text-left leading-none"><span class="block text-[8px] uppercase text-gray-500 font-bold mb-1">Platform</span><span class="font-black text-xs uppercase text-white">Upwork</span></div>
-            </a>
+            <!-- Right Column: Glowing Photo & Stats -->
+            <div class="md:col-span-5 text-center flex flex-col items-center">
+                <div class="relative hero-glow mb-6">
+                    <img src="me.jpg" class="w-44 h-44 md:w-52 md:h-52 rounded-full border-4 border-blue-500/80 object-cover shadow-[0_0_40px_rgba(59,130,246,0.3)]" alt="Temesgen Mengesha - Video Editing Expert">
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 w-full max-w-sm bg-white/[0.02] border border-white/10 p-4 rounded-2xl backdrop-blur-md">
+                    <div class="text-center">
+                        <p class="text-white font-black text-lg">250+</p>
+                        <p class="text-[7px] uppercase tracking-wider text-blue-400 font-bold">Delivered</p>
+                    </div>
+                    <div class="text-center border-x border-white/10 px-2">
+                        <p class="text-white font-black text-lg">85%+</p>
+                        <p class="text-[7px] uppercase tracking-wider text-emerald-400 font-bold">Retention</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-white font-black text-lg">100%</p>
+                        <p class="text-[7px] uppercase tracking-wider text-blue-400 font-bold">Success</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </header>
 
+    <!-- MEET YOUR EDITOR SECTION -->
     <section class="max-w-3xl mx-auto px-4 mb-20">
         <h2 class="text-center text-blue-400 uppercase tracking-[4px] md:tracking-[8px] text-xs md:text-sm font-black mb-6 italic">
             ✦ Meet Your Editor ✦
@@ -136,8 +166,8 @@
         </div>
     </section>
   
+    <!-- FEATURED PROJECTS SECTION -->
     <section class="max-w-5xl mx-auto px-4 py-8">
-        <!-- Professional English Guidance Text -->
         <div class="text-center mb-8">
             <h3 class="text-blue-400 uppercase tracking-[3px] text-xs md:text-sm font-bold mb-2">Explore My Featured Projects by Category Below:</h3>
         </div>
@@ -188,6 +218,7 @@
         </div>
     </section>
 
+    <!-- TOOLS & EXPERTISE -->
     <section class="max-w-6xl mx-auto px-6 py-10 pb-24 md:pb-10">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div class="glass p-6 md:p-10">
@@ -218,6 +249,7 @@
         </div>
     </section>
 
+    <!-- SOCIAL PROOF / UPWORK REVIEWS -->
     <section class="max-w-6xl mx-auto px-6 py-16 pb-24 md:py-16">
         <h2 class="text-center text-gray-500 uppercase tracking-[4px] md:tracking-[15px] text-[11px] font-black mb-16 italic">Success on Upwork (Social Proof)</h2>
         
@@ -260,6 +292,7 @@
         </div>
     </section>
 
+    <!-- PROCESS -->
     <section class="max-w-6xl mx-auto px-6 py-10 mb-20 pb-24 md:pb-10">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="glass p-8 text-center border-white/5">
@@ -280,6 +313,7 @@
         </div>
     </section>
 
+    <!-- CTA -->
     <section class="max-w-4xl mx-auto px-6 py-12 pb-24 md:pb-12">
         <div class="glass p-6 md:p-12 text-center border-2 border-blue-500 glow-hover relative overflow-hidden">
             <div class="relative z-10">
@@ -295,6 +329,7 @@
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="max-w-4xl mx-auto px-6 py-20">
         <h2 class="text-center text-gray-500 uppercase tracking-[4px] md:tracking-[15px] text-[11px] font-black mb-16 italic">Common Questions</h2>
         <div class="space-y-4">
